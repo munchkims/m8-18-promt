@@ -12,19 +12,19 @@ const copyLabel = document.getElementById("copyLabel");
 copyBtn.addEventListener("click", copyText);
 
 function getStoryText() {
-  return `ВАЖНО: итоговая сказка должна быть не более 1300–1400 символов.
+  return `Important: the final fairy tale should be no more than 1300–1400 characters long.
 
-Придумай сказку на тему ${t1.value}.
-Главный герой — ${t2.value}, он ${t3.value}.
-Его друг — ${t4.value}.
-Однажды с ними произошло ${t5.value}.
-В конце истории всё закончилось так: ${t6.value}.`;
+Come up with a fairy tale on the theme of ${t1.value}.
+The main character is ${t2.value}, they are ${t3.value}.
+Their friend is ${t4.value}.
+Once upon a time, something happened to them: ${t5.value}.
+At the end of the story, it all turned out like this: ${t6.value}.`;
 }
 
 function copyText() {
   const text = getStoryText();
 
-  // Современный Clipboard API (работает на HTTPS / localhost)
+  // Modern Clipboard API (works on HTTPS / localhost)
   if (navigator.clipboard && window.isSecureContext) {
     navigator.clipboard.writeText(text)
       .then(showSuccess)
@@ -49,7 +49,7 @@ function fallbackCopy(text) {
     document.execCommand("copy");
     showSuccess();
   } catch (err) {
-    alert("Копирование не поддерживается в этой среде");
+    alert("Copying is not supported in this environment");
   }
 
   document.body.removeChild(textarea);
